@@ -22,6 +22,7 @@ class DestinationsModel {
   } = {}) {
     const {query, project, sorter} = this.textQuery({sort, desc});
     let cursor;
+    const limit = parseInt(destinationsPerPages);
     try {
       cursor = await destinations
           .find(query)
@@ -32,8 +33,8 @@ class DestinationsModel {
       return [];
     }
 
-    const displayCursor = await cursor.limit(destinationsPerPages)
-        .skip(destinationsPerPages * page);
+    const displayCursor = await cursor.limit(limit)
+        .skip(limit * page);
 
     return displayCursor.toArray();
   }
@@ -41,6 +42,9 @@ class DestinationsModel {
   static textQuery({sort, desc}) {
     const query = {};
     const project = {};
+    if (['region', 'city'].includes(sort)) {
+      sort = `location.${sort}`;
+    }
     const sorter = {[sort]: desc? -1 : 1};
 
     return {query, project, sorter};

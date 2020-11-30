@@ -11,7 +11,7 @@ class DestinationController {
       destinationsPerPages: limit,
     });
 
-    res.json(response);
+    res.status(200).json(response);
   }
 }
 
