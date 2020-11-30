@@ -1,3 +1,5 @@
+const { ObjectId } = require("mongodb");
+
 let destinations;
 
 class DestinationsModel {
@@ -49,6 +51,23 @@ class DestinationsModel {
     const sorter = {[sort]: desc === 'true'? -1 : 1};
 
     return {query, project, sorter};
+  }
+
+  static async getDestinationById(id) {
+    const query = this.idQuery(id);
+    try {
+      return await destinations.findOne(query);
+    } catch (error) {
+      console.error(`Something went wrong in getMovieByID: ${error}`);
+      throw new Error(error);
+    }
+  }
+
+  static idQuery(id) {
+    if (id.length === 24) {
+      return {_id: new ObjectId(id)};
+    }
+    return {id: parseInt(id)};
   }
 }
 

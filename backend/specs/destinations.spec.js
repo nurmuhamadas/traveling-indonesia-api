@@ -1,22 +1,22 @@
 const axios = require('axios').default;
 
 describe('Get destination', () => {
-  it('should return 20 data when no query specified', async () => {
+  it('should return 20 data if no query specified', async () => {
     const {data} = await axios.get('http://localhost:5000/api/v1/destinations/');
     expect(data.length).toEqual(20);
   });
 
-  it('should return limited data when limit query is specified', async () => {
+  it('should return limited data if limit query is specified', async () => {
     const {data} = await axios.get('http://localhost:5000/api/v1/destinations/?limit=10');
     expect(data.length).toEqual(10);
   });
 
-  it('should return next data when page query is specified', async () => {
+  it('should return next data if page query is specified', async () => {
     const {data} = await axios.get('http://localhost:5000/api/v1/destinations/?page=1');
     expect(data[0].id).toEqual(36);
   });
 
-  describe('should return sorted data when', () => {
+  describe('should return sorted data if', () => {
     it('sort by name', async () => {
       const result = await axios.get('http://localhost:5000/api/v1/destinations/?sort=name');
       expect(result.data[0].id).toEqual(782);
@@ -63,10 +63,24 @@ describe('Get destination', () => {
       expect(data.length).toEqual(20);
     });
 
-    fit(`should return default sorted data when 
+    it(`should return default sorted data when 
       unexpected desc value is given`, async () => {
       const {data} = await axios.get('http://localhost:5000/api/v1/destinations/?desc=www');
       expect(data[0].id).toEqual(1);
     });
+  });
+});
+
+describe('Get destination by id:', () => {
+  it('should return a destination with specified id', async () => {
+    const id = 2;
+    const {data} = await axios.get(`http://localhost:5000/api/v1/destinations/${id}`);
+    expect(data.id).toEqual(2);
+  });
+
+  it('should return a destination with specified _id', async () => {
+    const _id = '5fc1a02191ce582470a4793f';
+    const {data} = await axios.get(`http://localhost:5000/api/v1/destinations/${_id}`);
+    expect(data.id).toEqual(2);
   });
 });
