@@ -22,7 +22,8 @@ class DestinationsModel {
   } = {}) {
     const {query, project, sorter} = this.textQuery({sort, desc});
     let cursor;
-    const limit = parseInt(destinationsPerPages);
+    const limit = destinationsPerPages == 0? 20 :
+    parseInt(destinationsPerPages);
     try {
       cursor = await destinations
           .find(query)
@@ -45,7 +46,7 @@ class DestinationsModel {
     if (['region', 'city'].includes(sort)) {
       sort = `location.${sort}`;
     }
-    const sorter = {[sort]: desc? -1 : 1};
+    const sorter = {[sort]: desc === 'true'? -1 : 1};
 
     return {query, project, sorter};
   }
