@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "prod": "next start",
-    "start": "node backend/index.js",
+    "start": "nodemon backend/index.js",
     "test": "karma start"
   },
   "dependencies": {
@@ -16,6 +16,7 @@
     "express": "^4.17.1",
     "mongodb": "^3.6.3",
     "next": "10.0.3",
+    "nodemon": "^2.0.6",
     "react": "17.0.1",
     "react-dom": "17.0.1"
   },
@@ -27,8 +28,11 @@
     "jasmine-core": "^3.6.0",
     "karma": "^5.2.3",
     "karma-chrome-launcher": "^3.1.0",
+    "karma-env-preprocessor": "^0.1.1",
     "karma-eslint": "^2.2.0",
     "karma-firefox-launcher": "^2.1.0",
-    "karma-jasmine": "^4.0.1"
+    "karma-jasmine": "^4.0.1",
+    "karma-sourcemap-loader": "^0.3.8",
+    "karma-webpack": "^4.0.2"
   }
 }
