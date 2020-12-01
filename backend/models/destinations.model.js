@@ -1,4 +1,4 @@
-const { ObjectId } = require("mongodb");
+const {ObjectId} = require('mongodb');
 
 let destinations;
 
@@ -24,8 +24,7 @@ class DestinationsModel {
   } = {}) {
     const {query, project, sorter} = this.textQuery({sort, desc});
     let cursor;
-    const limit = destinationsPerPages == 0? 20 :
-    parseInt(destinationsPerPages);
+    const limit = parseInt(destinationsPerPages);
     try {
       cursor = await destinations
           .find(query)
@@ -34,6 +33,10 @@ class DestinationsModel {
     } catch (error) {
       console.error(`Unable to issue find command, ${error}`);
       return [];
+    }
+
+    if (limit === 0) {
+      return cursor.toArray();
     }
 
     const displayCursor = await cursor.limit(limit)

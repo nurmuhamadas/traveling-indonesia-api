@@ -57,11 +57,11 @@ describe('Get destination', () => {
       expect(data[0].id).toEqual(1);
     });
 
-    it(`should return default limit data when 
+    it(`should return all data when 
       limit=0 is given`, async () => {
       const {data} = await axios.get('http://localhost:5000/api/v1/destinations/?limit=0');
-      expect(data.length).toEqual(20);
-    });
+      expect(data.length).toEqual(678);
+    }, 20000);
 
     it(`should return default sorted data when 
       unexpected desc value is given`, async () => {
