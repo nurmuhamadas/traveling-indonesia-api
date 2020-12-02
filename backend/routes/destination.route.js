@@ -6,10 +6,10 @@ const router = new Router();
 
 router.route('/').get(DestinationController.getDestinations);
 router.route('/search').get(DestinationController.searchDestinations);
-router.route('/review/').post(ReviewController.postReview);
 router
     .route('/review/:id')
     .get(ReviewController.getReviewById)
+    .post(ReviewController.postReview)
     .put(ReviewController.updateReview)
     .delete(ReviewController.deleteReview);
 
