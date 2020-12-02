@@ -1,6 +1,7 @@
 const app = require('./server');
 const {MongoClient} = require('mongodb');
 const DestinationsModel = require('./models/destinations.model');
+const ReviewsModel = require('./models/reviews.model');
 require('dotenv').config();
 
 const port = process.env.PORT || 5000;
@@ -16,6 +17,7 @@ client.connect()
     .then(() => {
       app.listen(port, async () => {
         await DestinationsModel.injectDB(client);
+        await ReviewsModel.injectDB(client);
         console.log(`Listening on port: ${port}`);
       });
     })

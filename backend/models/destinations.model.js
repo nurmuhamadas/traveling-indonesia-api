@@ -5,6 +5,9 @@ let destinations;
 class DestinationsModel {
   static async injectDB(connection) {
     try {
+      if (destinations) {
+        return;
+      }
       destinations = await connection.db(process.env.DESTINATION_DB)
           .collection('data');
     } catch (error) {
