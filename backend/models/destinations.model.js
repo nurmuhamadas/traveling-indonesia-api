@@ -22,9 +22,16 @@ class DestinationsModel {
     desc = false,
     destinationsPerPages = 20,
   } = {}) {
-    const {query, project, sorter} = this.textQuery({sort, desc});
     let cursor;
     const limit = parseInt(destinationsPerPages);
+    const queryParams = this.textQuery({sort, desc});
+
+    if (filters) {
+      queryParams.query = this.filterQuery(filters);
+    }
+
+    const {query, project, sorter} = queryParams;
+
     try {
       cursor = await destinations
           .find(query)
@@ -54,6 +61,30 @@ class DestinationsModel {
     const sorter = {[sort]: desc === 'true'? -1 : 1};
 
     return {query, project, sorter};
+  }
+
+  static filterQuery(filters) {
+    const query = {};
+    if (filters.name) {
+      query.name = {$regex: filters.name, $options: 'i'};
+    }
+    if (filters.location) {
+      query.$or = [
+        {'location.region': {$regex: filters.location, $options: 'i'}},
+        {'location.city': {$regex: filters.location, $options: 'i'}},
+        {'location.district': {$regex: filters.location, $options: 'i'}},
+        {'location.village': {$regex: filters.location, $options: 'i'}},
+      ];
+    }
+    if (filters.categories) {
+      const categories = filters.categories.split(',');
+      query.categories = {$in: categories};
+    }
+    if (filters.rating) {
+      query.rating = {$gte: parseInt(filters.rating)};
+    }
+
+    return query;
   }
 
   static async getDestinationById(id) {

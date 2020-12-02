@@ -29,6 +29,31 @@ class DestinationController {
       res.status(500).json({error});
     }
   }
+
+  static async searchDestinations(req, res) {
+    try {
+      const {name, location, categories, rating,
+        sort, desc, limit, page} = req.query;
+
+      if (!name && !location && !categories && !rating) {
+        res.status(400)
+            .json({error: `Please specified at least one required query`});
+        return;
+      }
+
+      const response = await DestinationsModel.getDestinations({
+        filters: {name, location, categories, rating},
+        sort,
+        desc,
+        page,
+        destinationsPerPages: limit,
+      });
+
+      res.status(200).json(response);
+    } catch (error) {
+      res.status(500).json({error});
+    }
+  }
 }
 
 module.exports = DestinationController;
