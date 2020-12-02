@@ -21,4 +21,16 @@ describe('Destination review:', () => {
     expect(data.status).toEqual('success');
     expect(data.insertedReview.name).toEqual('john');
   });
+
+  it('destination rating should equal to average of review rating',
+      async () => {
+        const {data} = await axios.get(`http://localhost:5000/api/v1/destinations/review/${DESTINATION_ID}`);
+        const destination = await axios.get(`http://localhost:5000/api/v1/destinations/${DESTINATION_ID}`);
+        let totalRating = 0;
+        for (let i = 0; i < data.reviews.length; i++) {
+          totalRating += data.reviews[i].rating;
+        }
+        expect(destination.data.rating)
+            .toEqual(Number((totalRating / data.reviews.length).toFixed(1)));
+      });
 });

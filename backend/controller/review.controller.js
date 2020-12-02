@@ -1,4 +1,5 @@
 const {ObjectId} = require('mongodb');
+const DestinationsModel = require('../models/destinations.model');
 const ReviewsModel = require('../models/reviews.model');
 
 class ReviewController {
@@ -13,7 +14,7 @@ class ReviewController {
       res.status(200).json(review);
     } catch (error) {
       console.log(error);
-      res.status(500).json({error});
+      res.status(500).json({error: error.message});
     }
   }
 
@@ -28,9 +29,18 @@ class ReviewController {
         res.status(400).json({error: 'All required data must be included'});
         return;
       }
+      if (rating < 0 || rating > 5) {
+        res.status(400)
+            .json({error: 'Rating value must less than 5 and grather than 0'});
+        return;
+      }
+      if (typeof rating !== 'number') {
+        throw new Error('Rating value must be number, not string');
+      }
 
       const dataInsert = {review_id: reviewId, name, rating, comment, date};
       await ReviewsModel.addReview(id, dataInsert);
+      await DestinationsModel.updateRating(id);
 
       res.status(200).json({status: 'success', insertedReview: dataInsert});
     } catch (error) {
@@ -44,6 +54,10 @@ class ReviewController {
 
   static async deleteReview(req, res) {
 
+  }
+
+  static _validateRating(rating) {
+    
   }
 }
 

@@ -1,4 +1,5 @@
 const {ObjectId} = require('mongodb');
+const ReviewsModel = require('./reviews.model');
 
 let destinations;
 
@@ -95,7 +96,7 @@ class DestinationsModel {
     try {
       return await destinations.findOne(query);
     } catch (error) {
-      console.error(`Something went wrong in getMovieByID: ${error}`);
+      console.error(`Something went wrong in getDestinationByID: ${error}`);
       throw new Error(error);
     }
   }
@@ -105,6 +106,27 @@ class DestinationsModel {
       return {_id: new ObjectId(id)};
     }
     return {id: parseInt(id)};
+  }
+
+  static async updateRating(id) {
+    try {
+      let totalRating = 0;
+      const {reviews} = await ReviewsModel.getReviewById(id);
+
+      for (let i = 0; i < reviews.length; i += 1) {
+        totalRating += reviews[i].rating;
+      }
+
+      const ratingAvg = Number((totalRating / reviews.length).toFixed(1));
+      await destinations.updateOne(
+          {_id: new ObjectId(id)},
+          {$set: {rating: ratingAvg}},
+      );
+      return {status: 'success'};
+    } catch (error) {
+      console.error(`Something went wrong in updateRating: ${error}`);
+      throw new Error(error);
+    }
   }
 }
 
