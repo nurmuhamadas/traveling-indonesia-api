@@ -9,7 +9,9 @@ router.route('/search').get(DestinationController.searchDestinations);
 router
     .route('/review/:id')
     .get(ReviewController.getReviewById)
-    .post(ReviewController.postReview)
+    .post(ReviewController.postReview);
+router
+    .route('/review/:id/:reviewId')
     .put(ReviewController.updateReview)
     .delete(ReviewController.deleteReview);
 

@@ -43,8 +43,8 @@ class ReviewController {
 
   static async updateReview(req, res) {
     try {
-      const {id} = req.params;
-      const {name, rating, comment, review_id: reviewId} = req.body;
+      const {id, reviewId} = req.params;
+      const {name, rating, comment} = req.body;
       const date = new Date();
 
       if (!reviewId) {
