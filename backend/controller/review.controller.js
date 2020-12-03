@@ -26,7 +26,7 @@ class ReviewController {
       const reviewId = new ObjectId();
 
       let error;
-      if (error = ReviewController._validateInput(name, rating, comment)) {
+      if (error = ReviewController._validateInput({name, rating, comment})) {
         res.status(400).json(error);
         return;
       }
@@ -42,14 +42,36 @@ class ReviewController {
   }
 
   static async updateReview(req, res) {
+    try {
+      const {id} = req.params;
+      const {name, rating, comment, review_id: reviewId} = req.body;
+      const date = new Date();
 
+      if (!reviewId) {
+        res.status(400).json({error: 'review_id is required'});
+        return;
+      }
+      let error;
+      if (error = ReviewController._validateInput({name, rating, comment})) {
+        res.status(400).json(error);
+        return;
+      }
+
+      const dataUpdate = {review_id: reviewId, name, rating, comment, date};
+      await ReviewsModel.updateReview(id, dataUpdate);
+      await DestinationsModel.updateRating(id);
+
+      res.status(200).json({status: 'success', updatedReview: dataUpdate});
+    } catch (error) {
+      res.status(500).json({error: error.message});
+    }
   }
 
   static async deleteReview(req, res) {
 
   }
 
-  static _validateInput(name, rating, comment) {
+  static _validateInput({name, rating, comment}) {
     if (!name || !rating || !comment) {
       return {error: 'All required data must be included'};
     }
