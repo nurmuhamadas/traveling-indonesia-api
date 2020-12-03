@@ -56,6 +56,20 @@ class ReviewsModel {
       throw new Error(error);
     }
   }
+
+  static async deleteReview(id, reviewId) {
+    const query = {'destination_id': new ObjectId(id)};
+
+    try {
+      return await reviews.updateOne(
+          query,
+          {$pull: {reviews: {review_id: new ObjectId(reviewId)}}},
+      );
+    } catch (error) {
+      console.error(`Something went wrong in getMovieByID: ${error}`);
+      throw new Error(error);
+    }
+  }
 }
 
 module.exports = ReviewsModel;

@@ -68,7 +68,22 @@ class ReviewController {
   }
 
   static async deleteReview(req, res) {
+    try {
+      const {id, reviewId} = req.params;
 
+      if (!reviewId) {
+        res.status(400).json({error: 'review_id is required'});
+        return;
+      }
+
+      // const dataDelete = await
+      await ReviewsModel.deleteReview(id, reviewId);
+      await DestinationsModel.updateRating(id);
+
+      res.status(200).json({status: 'success'});
+    } catch (error) {
+      res.status(500).json({error: error.message});
+    }
   }
 
   static _validateInput({name, rating, comment}) {
