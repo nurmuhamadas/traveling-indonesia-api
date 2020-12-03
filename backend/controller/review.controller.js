@@ -25,17 +25,10 @@ class ReviewController {
       const date = new Date();
       const reviewId = new ObjectId();
 
-      if (!name || !rating || !comment) {
-        res.status(400).json({error: 'All required data must be included'});
+      let error;
+      if (error = ReviewController._validateInput(name, rating, comment)) {
+        res.status(400).json(error);
         return;
-      }
-      if (rating < 0 || rating > 5) {
-        res.status(400)
-            .json({error: 'Rating value must less than 5 and grather than 0'});
-        return;
-      }
-      if (typeof rating !== 'number') {
-        throw new Error('Rating value must be number, not string');
       }
 
       const dataInsert = {review_id: reviewId, name, rating, comment, date};
@@ -56,8 +49,16 @@ class ReviewController {
 
   }
 
-  static _validateRating(rating) {
-    
+  static _validateInput(name, rating, comment) {
+    if (!name || !rating || !comment) {
+      return {error: 'All required data must be included'};
+    }
+    if (typeof rating !== 'number') {
+      return {error: 'Rating value must be number, not string'};
+    }
+    if (rating < 0 || rating > 5) {
+      return {error: 'Rating value must less than 5 and grather than 0'};
+    }
   }
 }
 
