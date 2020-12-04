@@ -6,6 +6,7 @@
     },
     "extends": [
         "plugin:react/recommended",
+        "plugin:jsx-a11y/recommended",
         "google"
     ],
     "parserOptions": {
@@ -20,6 +21,15 @@
     ],
     "rules": {
         "linebreak-style": 0,
-        "require-jsdoc": 0
+        "require-jsdoc": 0,
+        "react/react-in-jsx-scope": 0,
+        "jsx-a11y/anchor-is-valid": [
+            "error",
+            {
+                "components": ["Link"],
+                "specialLink": ["hrefLeft", "hrefRight"],
+                "aspects": ["invalidHref", "preferButton"]
+            }
+        ]
     }
 }

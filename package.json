@@ -1,5 +1,5 @@
 {
-  "name": "traveling-indonesia",
+  "name": "traveling-indonesia-api",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -12,6 +12,8 @@
   "dependencies": {
     "axios": "^0.21.0",
     "body-parser": "^1.19.0",
+    "bootstrap": "^4.5.3",
+    "classname": "0.0.0",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
@@ -19,11 +21,13 @@
     "next": "10.0.3",
     "nodemon": "^2.0.6",
     "react": "17.0.1",
+    "react-bootstrap": "^1.4.0",
     "react-dom": "17.0.1"
   },
   "devDependencies": {
     "eslint": "^7.14.0",
     "eslint-config-google": "^0.14.0",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.21.5",
     "jasmine-ajax": "^4.0.0",
     "jasmine-core": "^3.6.0",
