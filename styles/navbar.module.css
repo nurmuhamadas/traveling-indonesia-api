@@ -2,11 +2,13 @@
   width: 100vw;
   height: 75px; /* 450px */
   padding: 1.5rem 2rem 0;
+  position: absolute;
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   border-bottom: 2px solid var(--primary-color);
   transition: all ease-in-out .3s;
+  background-color: #fff;
   z-index: 99;
 }
 
@@ -76,7 +78,7 @@
 }
 
 .social__icon.show_menu {
-  transform: rotateX(0);
+  transform: rotateX(0) translateY(-0.5rem);
   padding: .5rem;
 }
 
