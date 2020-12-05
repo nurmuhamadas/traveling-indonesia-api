@@ -12,6 +12,7 @@ const NavbarComponent = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    window.addEventListener('load', handleWindowResize);
     window.addEventListener('resize', handleWindowResize);
   }, [menuOpen]);
 
