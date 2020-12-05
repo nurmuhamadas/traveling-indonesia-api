@@ -33,6 +33,22 @@ export default function Home() {
             <SearchBar />
           </div>
         </section>
+        <section id={styles.advantages}>
+          <div className={styles.adv__wrap}>
+            <div className={styles.adv__part}>
+              <p className={styles.count}>682</p>
+              <p className={styles.info}>Tour destinations</p>
+            </div>
+            <div className={styles.adv__part}>
+              <p className={styles.count}>150+</p>
+              <p className={styles.info}>Cities in Indonesia</p>
+            </div>
+            <div className={styles.adv__part}>
+              <p className={styles.count}>34</p>
+              <p className={styles.info}>Provinces in Indonesia</p>
+            </div>
+          </div>
+        </section>
       </main>
 
       <Footer />
