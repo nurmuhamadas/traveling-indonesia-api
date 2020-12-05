@@ -1,11 +1,14 @@
+/* eslint-disable react/prop-types */
 import Image from 'next/image';
 
-const SocialIcon = () => {
+const SocialIcon = ({color}) => {
   return (
     <div className="social_icon">
       <a href="https://github.com/nurmuhamadas" className="icons">
         <Image
-          src="/icons/github.svg"
+          src={color === 'white'?
+            '/icons/github-white.svg' :
+            '/icons/github.svg'}
           width="24"
           height="24"
           alt="Github"
@@ -13,7 +16,9 @@ const SocialIcon = () => {
       </a>
       <a href="https://instagram.com/nurmuhamadas" className="icons">
         <Image
-          src="/icons/instagram.svg"
+          src={color === 'white'?
+            '/icons/instagram-white.svg' :
+            '/icons/instagram.svg'}
           width="24"
           height="24"
           alt="Instagram"
@@ -21,7 +26,9 @@ const SocialIcon = () => {
       </a>
       <a href="mailto:nurmuhamad.a.13@gmail.com" className="icons">
         <Image
-          src="/icons/gmail.svg"
+          src={color === 'white'?
+            '/icons/gmail-white.svg' :
+            '/icons/gmail.svg'}
           width="24"
           height="24"
           alt="Email"

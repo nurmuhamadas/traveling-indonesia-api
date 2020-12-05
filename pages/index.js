@@ -1,8 +1,8 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
 import NavbarComponent from '../components/navbar';
-import 'primeicons/primeicons.css';
 import SearchBar from '../components/SearchBar';
+import Footer from '../components/Footer';
 
 export default function Home() {
   return (
@@ -35,7 +35,7 @@ export default function Home() {
         </section>
       </main>
 
-      <footer></footer>
+      <Footer />
     </div>
   );
 }
