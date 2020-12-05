@@ -1,0 +1,31 @@
+.form_wrap {
+  width: 100%;
+  height: 56px;
+  max-width: 600px;
+  position: relative;
+}
+
+#searchInput {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  max-width: 600px;
+  border-radius: .25rem;
+  border: none;
+  padding: 0 1rem;
+  font-size: 1rem;
+}
+
+.search_btn {
+  width: 56px;
+  height: 56px;
+  color: #fff;
+  border-radius: 0 .25rem .25rem 0;
+  background-color: var(--primary-color);
+  position: absolute;
+  right: 0;
+  top: 0;
+  border: none;
+}
