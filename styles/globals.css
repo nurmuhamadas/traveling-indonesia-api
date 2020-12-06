@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;700&family=Roboto:wght@300;400;700&display=swap');
 
 :root {
-  --primary-color: #E5987C;
+  --primary-color: #E5987C !important;
   --secondary-color: #FDC6AB;
   --light-color: #FCEADC;
   --text-color: #707070;
@@ -51,4 +51,31 @@ p {
 
 main {
   padding-top: 75px;
+}
+
+/* Override primereact theme */
+
+.p-highlight .p-menuitem-link {
+  color: var(--primary-color) !important;
+}
+
+.p-tabmenu-ink-bar {
+  background-color: var(--primary-color) !important;
+}
+
+.p-card-header {
+  height: 216px;
+}
+
+.p-card-header img {
+  height: 216px;
+  object-fit: cover;
+}
+
+.p-card .p-card-title {
+  font-size: 1.25rem !important;
+}
+
+.p-button.p-button-outlined {
+  color: var(--primary-color) !important;
 }
