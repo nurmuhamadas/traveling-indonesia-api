@@ -1,7 +1,5 @@
 import Head from 'next/head';
 import styles from '../../styles/Destination.module.css';
-import NavbarComponent from '../../components/navbar';
-import Footer from '../../components/Footer';
 import {Galleria} from 'primereact/galleria';
 import {ProgressSpinner} from 'primereact/progressspinner';
 import {useRouter} from 'next/router';
@@ -71,8 +69,6 @@ function destination({destination}) {
         <title>{isFallback? 'loading...' : destination.name}</title>
       </Head>
 
-      <NavbarComponent />
-
       <main id={styles.destination}>
         {
           isFallback?
@@ -108,33 +104,33 @@ function destination({destination}) {
                 {destination.location.full_address}
               </p>
               <table className={styles.location__detail}>
-                <tr className={styles.location__list} >
-                  <td><i className="pi pi-angle-right"></i></td>
-                  <td>Village</td>
-                  <td>: {destination.location.village}</td>
-                </tr>
-                <tr className={styles.location__list} >
-                  <td><i className="pi pi-angle-right"></i></td>
-                  <td>District</td>
-                  <td>: {destination.location.district}</td>
-                </tr>
-                <tr className={styles.location__list} >
-                  <td><i className="pi pi-angle-right"></i></td>
-                  <td>City</td>
-                  <td>: {destination.location.city}</td>
-                </tr>
-                <tr className={styles.location__list} >
-                  <td><i className="pi pi-angle-right"></i></td>
-                  <td>Povince</td>
-                  <td>: {destination.location.region}</td>
-                </tr>
+                <tbody>
+                  <tr className={styles.location__list} >
+                    <td><i className="pi pi-angle-right"></i></td>
+                    <td>Village</td>
+                    <td>: {destination.location.village}</td>
+                  </tr>
+                  <tr className={styles.location__list} >
+                    <td><i className="pi pi-angle-right"></i></td>
+                    <td>District</td>
+                    <td>: {destination.location.district}</td>
+                  </tr>
+                  <tr className={styles.location__list} >
+                    <td><i className="pi pi-angle-right"></i></td>
+                    <td>City</td>
+                    <td>: {destination.location.city}</td>
+                  </tr>
+                  <tr className={styles.location__list} >
+                    <td><i className="pi pi-angle-right"></i></td>
+                    <td>Povince</td>
+                    <td>: {destination.location.region}</td>
+                  </tr>
+                </tbody>
               </table>
             </div>
           </section>
         }
       </main>
-
-      <Footer />
     </>
   );
 }

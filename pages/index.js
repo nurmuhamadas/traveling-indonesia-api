@@ -1,8 +1,6 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
-import NavbarComponent from '../components/navbar';
 import SearchBar from '../components/SearchBar';
-import Footer from '../components/Footer';
 import {TabMenu} from 'primereact/tabmenu';
 import cn from 'classname';
 import DestinationApi from '../api/DestinationApi';
@@ -35,8 +33,6 @@ export default function Home(props) {
       <Head>
         <title>Traveling Indonesia</title>
       </Head>
-
-      <NavbarComponent />
 
       <main>
         <section id={styles.hero__section}>
@@ -96,15 +92,13 @@ export default function Home(props) {
           />
         </section>
       </main>
-
-      <Footer />
     </div>
   );
 }
 
 export async function getStaticProps() {
   const nature = await DestinationApi
-      .getDestinationsByCategory({category: 'alam', limit: 6});
+      .getDestinationsByCategory({category: 'alam', limit: 6, page: 2});
   const religi = await DestinationApi
       .getDestinationsByCategory({category: 'religi', limit: 6});
   const culture = await DestinationApi
@@ -112,7 +106,7 @@ export async function getStaticProps() {
   const historical = await DestinationApi
       .getDestinationsByCategory({category: 'sejarah', limit: 6});
   const modern = await DestinationApi
-      .getDestinationsByCategory({category: 'modern', limit: 6});
+      .getDestinationsByCategory({category: 'modern', limit: 6, page: 1});
   const others = await DestinationApi
       .getDestinationsByCategory({category: 'lainnya', limit: 6});
 
