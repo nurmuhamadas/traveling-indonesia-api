@@ -99,7 +99,14 @@ main {
   padding: .25rem .8rem !important;
 }
 
+.p-button-text {
+  color: var(--primary-color) !important;
+}
 
+.p-card-footer {
+  text-align: right;
+  padding: 1rem 0 !important;
+}
 
 
 
