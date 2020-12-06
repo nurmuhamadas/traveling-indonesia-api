@@ -47,6 +47,7 @@ h3 {
 p {
   font-size: 1rem;
   font-family: 'Roboto', sans-serif;
+  line-height: 1.5em;
 }
 
 main {
@@ -78,4 +79,33 @@ main {
 
 .p-button.p-button-outlined {
   color: var(--primary-color) !important;
+}
+
+.p-galleria-thumbnail-container {
+  background-color: #dddddd !important;
+}
+
+.p-galleria-thumbnail-next, .p-galleria-thumbnail-prev {
+  color: #707070 !important;
+}
+
+.p-galleria-item img {
+  height: 325px !important;
+  object-fit: cover;
+}
+
+.p-tag {
+  background-color: #FF8C54 !important;
+  padding: .25rem .8rem !important;
+}
+
+
+
+
+
+@media screen and (min-width: 1280px) {
+  .p-galleria-item img {
+    height: 375px !important;
+    object-fit: cover;
+  }
 }

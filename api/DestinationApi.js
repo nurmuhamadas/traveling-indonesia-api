@@ -8,4 +8,10 @@ export default class DestinationApi {
         .get(`${BASE_URL}/search/?categories=${category}&limit=${limit}`);
     return data;
   }
+
+  static async getDestinationById(id) {
+    const {data} = await axios
+        .get(`${BASE_URL}/${id}`);
+    return data;
+  }
 }
