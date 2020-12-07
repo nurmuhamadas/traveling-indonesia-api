@@ -131,6 +131,24 @@ main {
   box-shadow: 0 0 10px var(--primary-color), 0 0 5px var(--primary-color) !important;
 }
 
+.p-panelmenu .p-panelmenu-panel {
+  box-shadow: unset !important;
+}
+
+.p-menuitem-link {
+  padding-left: 2.5rem !important;
+}
+
+#sidebar .open__button .p-button:enabled:hover {
+  background: var(--primary-color) !important;
+  border-radius: 0 4px 4px 0;
+}
+
+#sidebar .open__button .p-button {
+  background: var(--primary-color) !important;
+  border-radius: 0 4px 4px 0;
+}
+
 
 @media screen and (min-width: 1280px) {
   .p-galleria-item img {
