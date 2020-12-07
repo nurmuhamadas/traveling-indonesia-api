@@ -33,7 +33,7 @@ const SidebarComp = () => {
   }, [visible]);
 
   return (
-    <sidebar id="sidebar" className={cn({menu_stat: visible})} >
+    <sidebar id="sidebar" className={cn({show_menu: visible})} >
       <div className="sidebar__wrap">
         <div className="p-panelmenu p-component">
           <div className="p-panelmenu-panel">
@@ -69,15 +69,20 @@ const SidebarComp = () => {
         #sidebar {
           width: 300px;
           height: 100%;
-          padding: 5.5rem 0 3rem;
+          padding: 3rem 0;
           display: block;
           position: absolute;
-          left: -300px;
-          top: 0;
           background-color: #fff;
           box-shadow: 3px 0 6px rgba(0, 0, 0, 0.075);
           transition: all ease-in-out .3s;
+          transform: translateX(-100%);
           z-index: 9;
+        }
+        
+        .show_menu {
+          width: 300px !important;
+          transform: translateX(0) !important;
+          position: relative !important;
         }
 
         .sidebar__wrap {
@@ -85,17 +90,15 @@ const SidebarComp = () => {
           height: 100%;
           background-color: #fff;
           position: relative;
+          z-index: 9;
         }
 
         .open__button {
           position: absolute;
           right: 0;
-          transform: translateX(100%);
-          top: 7rem;
+          transform: translateX(80%);
+          top: 4rem;
           z-index: 8;
-        }
-        .menu_stat {
-          left: 0 !important;
         }
       `}</style>
     </sidebar>
