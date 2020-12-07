@@ -8,10 +8,11 @@ import {useEffect, useState} from 'react';
 
 const NavbarComponent = () => {
   const router = useRouter();
-  const currentRoute = router.pathname.split('/')[1];
+  const [currentRoute, setCurrentRoute] = useState(router.pathname);
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
+    router.events.on('routeChangeComplete', (path) => setCurrentRoute(path));
     window.addEventListener('load', handleWindowResize);
     window.addEventListener('resize', handleWindowResize);
   }, [menuOpen]);
@@ -38,15 +39,15 @@ const NavbarComponent = () => {
           <Link href="/">
             <a className={cn(
                 styles.nav__item,
-                {[styles.active]: currentRoute === ''},
+                {[styles.active]: currentRoute === '/'},
             )}>
             Home
             </a>
           </Link>
-          <Link href="/documentation">
+          <Link href="/docs">
             <a className={cn(
                 styles.nav__item,
-                {[styles.active]: currentRoute === 'documentation'},
+                {[styles.active]: currentRoute.includes('/docs')},
             )}>
             Documentation
             </a>
@@ -54,7 +55,7 @@ const NavbarComponent = () => {
           <Link href="/contributing">
             <a className={cn(
                 styles.nav__item,
-                {[styles.active]: currentRoute === 'contributing'},
+                {[styles.active]: currentRoute === '/contributing'},
             )}>
             Contributing
             </a>
@@ -62,7 +63,7 @@ const NavbarComponent = () => {
           <Link href="/about">
             <a className={cn(
                 styles.nav__item,
-                {[styles.active]: currentRoute === 'about'},
+                {[styles.active]: currentRoute === '/about'},
             )}>
             About
             </a>

@@ -5,12 +5,13 @@ import {useEffect, useState} from 'react';
 import cn from 'classname';
 import {useRouter} from 'next/router';
 
-const SidebarComp = () => {
+const SidebarComp = ({showMenu}) => {
   const [visible, setVisible] = useState(true);
   const router = useRouter();
 
   const handleToggleMenu = () => {
     setVisible(!visible);
+    showMenu(!visible);
   };
 
   const navigateTo = (path) => {
@@ -21,8 +22,10 @@ const SidebarComp = () => {
   const handleWindowResize = () => {
     if (window.innerWidth > 992) {
       setVisible(true);
+      showMenu(true);
     } else {
       setVisible(false);
+      showMenu(false);
     }
   };
 
@@ -33,7 +36,7 @@ const SidebarComp = () => {
   }, [visible]);
 
   return (
-    <sidebar id="sidebar" className={cn({show_menu: visible})} >
+    <aside id="sidebar" className={cn({show_menu: visible})} >
       <div className="sidebar__wrap">
         <div className="p-panelmenu p-component">
           <div className="p-panelmenu-panel">
@@ -79,10 +82,10 @@ const SidebarComp = () => {
           z-index: 9;
         }
         
-        .show_menu {
-          width: 300px !important;
-          transform: translateX(0) !important;
-          position: relative !important;
+        #sidebar.show_menu {
+          width: 300px;
+          transform: translateX(0);
+          position: relative;
         }
 
         .sidebar__wrap {
@@ -100,8 +103,14 @@ const SidebarComp = () => {
           top: 4rem;
           z-index: 8;
         }
+
+        @media screen and (max-width: 768px) {
+          #sidebar.show_menu {
+            position: fixed;
+          }
+        }
       `}</style>
-    </sidebar>
+    </aside>
   );
 };
 
