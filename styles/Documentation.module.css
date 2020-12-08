@@ -47,6 +47,7 @@
   margin: 2rem 0;
   background-color:rgba(242, 242, 242, 1);
   overflow-x: auto;
+  color: #707070;
 }
 
 .code pre {
@@ -54,6 +55,10 @@
   font-family: monospace;
   white-space: pre;
   line-height: 1.5em;
+}
+
+.code.acc {
+  margin: 0;
 }
 
 .link {
@@ -69,6 +74,12 @@
 .list {
   margin-top: 1rem;
 }
+
+#main__content .p-accordion-tab.p-accordion-tab-active {
+  max-width: 768px;
+}
+
+
 
 @media screen and (max-width: 768px) {
   #main__content {

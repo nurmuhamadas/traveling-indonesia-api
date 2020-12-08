@@ -149,6 +149,18 @@ main {
   border-radius: 0 4px 4px 0;
 }
 
+.p-accordion .p-accordion-tab {
+  box-shadow: none !important;
+  border: 1px solid #eeeeee;
+}
+
+.acc__content .p-accordion-content {
+  padding: 0 !important;
+}
+
+.p-accordion-tab {
+  max-width: 768px;
+}
 
 @media screen and (min-width: 1280px) {
   .p-galleria-item img {
