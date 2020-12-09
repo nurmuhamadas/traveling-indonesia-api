@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import {useRouter} from 'next/router';
 import styles from '../styles/Home.module.css';
 import SearchBar from '../components/SearchBar';
 import {TabMenu} from 'primereact/tabmenu';
@@ -7,25 +8,31 @@ import DestinationApi from '../api/DestinationApi';
 import {useState} from 'react';
 import Cards from '../components/Cards';
 import {Button} from 'primereact/button';
+import {categoriesItem} from '../templates/props';
 
-const tabMenuItem = [
-  {label: 'Nature'},
-  {label: 'Religi'},
-  {label: 'Historical'},
-  {label: 'Culture'},
-  {label: 'Modern'},
-  {label: 'Others'},
-];
 
 export default function Home(props) {
-  const [tabMenuActive, setTabMenuActive] = useState(tabMenuItem[0]);
+  const router = useRouter();
+  const [category, setCategory] = useState('religi');
+  const [inputName, setInputName] = useState('');
+  const [tabMenuActive, setTabMenuActive] = useState(categoriesItem[0]);
 
   const handleTabMenuChange = (event) => {
     setTabMenuActive(event.value);
+    setCategory(event.value.value);
   };
 
   const handleViewMoreClick = () => {
-    console.log('view more');
+    router.push(`/destination/?categories=${category}`);
+  };
+
+  const handleInputChange = (e) => {
+    setInputName(e.target.value);
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    router.push(`/destination/?name=${inputName}`);
   };
 
   return (
@@ -51,7 +58,10 @@ export default function Home(props) {
               An open-source database of Indonesian Tour Destination.
               We provides free JSON API for anyone to use it.
             </h3>
-            <SearchBar />
+            <SearchBar
+              handleSubmit={handleSubmit}
+              handleInputChange={handleInputChange}
+            />
           </div>
         </section>
         <section id={styles.advantages}>
@@ -77,7 +87,7 @@ export default function Home(props) {
           </h2>
           <div className={cn('card', styles.tab__menu)}>
             <TabMenu
-              model={tabMenuItem}
+              model={categoriesItem}
               activeItem={tabMenuActive}
               onTabChange={(e) => handleTabMenuChange(e)}
             />

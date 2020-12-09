@@ -9,23 +9,7 @@ import SearchBar from '../../components/SearchBar';
 import Cards from '../../components/Cards';
 import styles from '../../styles/Destination.module.css';
 import DestinationApi from '../../api/DestinationApi';
-
-const sorterItem = [
-  {label: 'Id', value: ''},
-  {label: 'Name', value: 'name'},
-  {label: 'City', value: 'city'},
-  {label: 'Province', value: 'region'},
-  {label: 'Rating', value: 'rating'},
-];
-
-const categoriesItem = [
-  {label: 'Religi', value: 'religi'},
-  {label: 'Nature', value: 'alam'},
-  {label: 'Historical', value: 'sejarah'},
-  {label: 'Culture', value: 'budaya'},
-  {label: 'Modern', value: 'modern'},
-  {label: 'Others', value: 'lainnya'},
-];
+import {categoriesItem, sorterItem} from '../../templates/props';
 
 export default function DestinationPage(props) {
   const router = useRouter();
