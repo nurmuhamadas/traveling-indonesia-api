@@ -27,6 +27,7 @@ class DestinationsModel {
     destinationsPerPages = 20,
   } = {}) {
     let cursor;
+    sort = sort === ''? 'id' : sort;
     const limit = parseInt(destinationsPerPages);
     const queryParams = this.textQuery({sort, desc});
 
