@@ -169,7 +169,7 @@ main {
   max-width: 768px;
 }
 
-.p-dropdown, .p-inputnumber {
+.p-dropdown, .p-inputnumber, .p-multiselect {
   width: 100% !important;
   max-width: 250px;
 }

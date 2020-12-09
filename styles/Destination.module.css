@@ -154,4 +154,9 @@
     max-width: 1140px;
     grid-template-columns: 1fr 1fr 1fr;
   }
+
+  .filter {
+    grid-template-columns: 3fr 2fr 3fr 3fr;
+    max-width: 1024px;
+  }
 }
