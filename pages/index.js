@@ -96,19 +96,19 @@ export default function Home(props) {
   );
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const nature = await DestinationApi
-      .getDestinationsByCategory({category: 'alam', limit: 6, page: 2});
+      .searchDestination({categories: 'alam', limit: 6, page: 2});
   const religi = await DestinationApi
-      .getDestinationsByCategory({category: 'religi', limit: 6});
+      .searchDestination({categories: 'religi', limit: 6});
   const culture = await DestinationApi
-      .getDestinationsByCategory({category: 'budaya', limit: 6});
+      .searchDestination({categories: 'budaya', limit: 6});
   const historical = await DestinationApi
-      .getDestinationsByCategory({category: 'sejarah', limit: 6});
+      .searchDestination({categories: 'sejarah', limit: 6});
   const modern = await DestinationApi
-      .getDestinationsByCategory({category: 'modern', limit: 6, page: 1});
+      .searchDestination({categories: 'modern', limit: 6, page: 1});
   const others = await DestinationApi
-      .getDestinationsByCategory({category: 'lainnya', limit: 6});
+      .searchDestination({categories: 'lainnya', limit: 6});
 
   return {
     props: {
