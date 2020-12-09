@@ -16,4 +16,14 @@ export default class DestinationApi {
         .get(`${BASE_URL}/${id}`);
     return data;
   }
+
+  static async getDestinations({
+    limit = 20,
+    page = 0,
+    sort = 'id',
+    desc = '',
+  }) {
+    const {data} = await axios.get(`${BASE_URL}/?limit=${limit}&page=${page}&sort=${sort}&desc=${desc}`);
+    return data;
+  }
 }

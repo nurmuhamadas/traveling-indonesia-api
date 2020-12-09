@@ -16,6 +16,7 @@
   border: none;
   padding: 0 1rem;
   font-size: 1rem;
+  box-shadow: 0 0 0px 6px #e5987c22;
 }
 
 .search_btn {
