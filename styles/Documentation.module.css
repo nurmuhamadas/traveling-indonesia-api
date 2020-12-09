@@ -35,8 +35,12 @@
   margin-top: 1rem;
 }
 
-.heading {
-  margin-top: 2rem;
+h3.heading {
+  margin-top: 2.5rem;
+}
+
+h4.heading {
+  margin-top: 1.25rem;
 }
 
 .code {
@@ -44,7 +48,7 @@
   height: max-content;
   max-width: 768px;
   padding: 1.125rem;
-  margin: 2rem 0;
+  margin: 1rem 0;
   background-color:rgba(242, 242, 242, 1);
   overflow-x: auto;
   color: #707070;
@@ -75,8 +79,35 @@
   margin-top: 1rem;
 }
 
+.mark {
+  padding: .25rem .375rem;
+  margin: 0 .25rem;
+  color: #707070;
+  font-family: monospace;
+  background-color: #eeeeee;
+}
+
 #main__content .p-accordion-tab.p-accordion-tab-active {
   max-width: 768px;
+}
+
+.table {
+  width: 100%;
+  height: max-content;
+  border-spacing: 0;
+  margin-top: 1rem;
+}
+
+.t_head {
+  min-width: 100px;
+  font-weight: bold;
+  background-color: #eeeeee;
+}
+
+.t_head th, .t_body td {
+  border: 1px solid #cccccc;
+  border-collapse: collapse;
+  padding: .5rem 1rem;
 }
 
 

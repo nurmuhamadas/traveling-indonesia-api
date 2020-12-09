@@ -50,9 +50,9 @@ export default function Docs(props) {
             In this page you will get clear documentation to use Traveling
             Indonesia API. You can easily get source code you need by open
             our Play Ground Page. It will provide you the code according
-            to request you want. You can find here:
+            to request you want. You can find at
             <Link href="/docs/play-ground">
-              <a className={styles.link}>Traveling Indonesia play-ground</a>
+              <a className={styles.link}> Traveling Indonesia play-ground</a>
             </Link>
           </p>
           <h3 className={styles.heading}>API Documentation</h3>
@@ -60,7 +60,7 @@ export default function Docs(props) {
             In this section, you will get complete documentation about API
             endpoint, params, query, and others you need. It is very clear
             documentation. Get it here:
-            <Link href="/docs/api-documentation">
+            <Link href="/docs/get-destinations">
               <a className={styles.link}> API Documentation. </a>
             </Link>
           </p>

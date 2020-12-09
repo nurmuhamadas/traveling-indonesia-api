@@ -18,6 +18,10 @@ body {
   color: #707070;
 }
 
+body {
+  overflow-x: hidden;
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -152,10 +156,13 @@ main {
 .p-accordion .p-accordion-tab {
   box-shadow: none !important;
   border: 1px solid #eeeeee;
+  margin-top: 1rem;
 }
 
 .acc__content .p-accordion-content {
   padding: 0 !important;
+  max-height: 500px !important;
+  overflow-y: auto;
 }
 
 .p-accordion-tab {

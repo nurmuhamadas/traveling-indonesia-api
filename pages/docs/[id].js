@@ -10,10 +10,17 @@ import styles from '../../styles/Documentation.module.css';
 export default function Documentation(props) {
   const [VisibleMenu, setVisibleMenu] = useState(true);
 
+  const idToTitle = (id = '') => {
+    let title = id.split('-');
+    title = title.map((string) => string[0].toUpperCase() + string.slice(1));
+    title = title.join(' ');
+    return title;
+  };
+
   return (
     <div className={styles.container}>
       <Head>
-        <title>Documentation</title>
+        <title>{idToTitle(props.id)}</title>
       </Head>
 
       <main
@@ -45,6 +52,7 @@ export async function getStaticProps(context) {
   }
   return {
     props: {
+      id,
       docs: docs[id],
     },
   };
@@ -54,7 +62,6 @@ export async function getStaticPaths() {
   return {
     paths: [
       {params: {id: 'quick-start'}},
-      {params: {id: 'api-documentation'}},
       {params: {id: 'play-ground'}},
       {params: {id: 'get-destinations'}},
       {params: {id: 'search-destinations'}},
