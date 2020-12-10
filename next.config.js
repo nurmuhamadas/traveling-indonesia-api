@@ -1,5 +1,5 @@
 module.exports = {
   env: {
-    BASE_URL: 'http://localhost:5000/api/v1/',
+    BASE_URL: 'https://travelingindonesia.herokuapp.com/api/v1/',
   },
 };

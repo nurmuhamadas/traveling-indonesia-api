@@ -1,3 +1,3 @@
 {
-  "ignore": ["*spec.js"]
+  "ignore": ["*spec.js", "../"]
 }
