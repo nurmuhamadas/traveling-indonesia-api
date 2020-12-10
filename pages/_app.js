@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import Head from 'next/head';
 import '../styles/globals.css';
 import 'nprogress/nprogress.css';
 import 'primereact/resources/themes/md-light-deeppurple/theme.css';
@@ -16,6 +17,9 @@ Router.events.on('routeChangeError', () => NProgress.done());
 
 function MyApp({Component, pageProps}) {
   return <>
+    <Head>
+      <link rel="shortcut icon" href="/icons/logo.png" />
+    </Head>
     <NavbarComponent />
     <Component {...pageProps} />
     <Footer />
