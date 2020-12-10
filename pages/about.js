@@ -1,6 +1,5 @@
 import Head from 'next/head';
 import Link from 'next/link';
-import styles from '../styles/About.module.css';
 import Image from 'next/image';
 import SocialIcon from '../components/SocialIcon';
 
@@ -46,9 +45,9 @@ export default function About(props) {
         <h3 className="heading">
           Support us:
         </h3>
-        <p className="paragraph">
+        <div className="paragraph">
           <SocialIcon />
-        </p>
+        </div>
       </main>
 
       <style jsx>{`

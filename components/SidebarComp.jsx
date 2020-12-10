@@ -60,7 +60,11 @@ const SidebarComp = ({showMenu}) => {
             </div>
           </div>
         </div>
-        <PanelMenu model={items(navigateTo)} style={{width: '300px'}}/>
+        <PanelMenu
+          id="panel-menu"
+          model={items(navigateTo)}
+          style={{width: '300px'}}
+        />
       </div>
       <div className="open__button">
         <Button
@@ -129,23 +133,6 @@ const items = (navigateTo) => [
       {
         label: 'Destination Reviews',
         command: () => navigateTo('/docs/destination-reviews'),
-      },
-    ],
-  },
-  {
-    label: 'Usage Example',
-    items: [
-      {
-        label: 'Get destinations',
-        command: () => navigateTo('/docs/usage-get-destinations'),
-      },
-      {
-        label: 'Search destinations',
-        command: () => navigateTo('/docs/usage-search-destinations'),
-      },
-      {
-        label: 'Destination Reviews',
-        command: () => navigateTo('/docs/usage-destination-reviews'),
       },
     ],
   },

@@ -1,8 +1,6 @@
 /* eslint-disable max-len */
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5000/api/v1/destinations';
-
 export default class DestinationApi {
   static async searchDestination({name, location, categories, rating,
     sort, desc, limit = 20, page}) {
@@ -13,14 +11,14 @@ export default class DestinationApi {
     query += rating? `&rating=${rating}`: '';
 
     const {data} = await axios.get(
-        `${BASE_URL}/${query? 'search/' : ''}?sort=${sort}&desc=${desc}&limit=${limit}&page=${page}${query}`,
+        `${process.env.BASE_URL}destinations/${query? 'search/' : ''}?sort=${sort}&desc=${desc}&limit=${limit}&page=${page}${query}`,
     );
     return data;
   }
 
   static async getDestinationById(id) {
     const {data} = await axios
-        .get(`${BASE_URL}/${id}`);
+        .get(`${process.env.BASE_URL}destinations/${id}`);
     return data;
   }
 
@@ -30,7 +28,7 @@ export default class DestinationApi {
     sort = 'id',
     desc = '',
   }) {
-    const {data} = await axios.get(`${BASE_URL}/?limit=${limit}&page=${page}&sort=${sort}&desc=${desc}`);
+    const {data} = await axios.get(`${process.env.BASE_URL}destinations/?limit=${limit}&page=${page}&sort=${sort}&desc=${desc}`);
     return data;
   }
 }

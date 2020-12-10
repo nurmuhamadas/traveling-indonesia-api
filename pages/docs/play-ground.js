@@ -11,8 +11,6 @@ import SidebarComp from '../../components/SidebarComp';
 import cn from 'classname';
 import {categoriesItem, sorterItem} from '../../templates/props';
 
-const BASE_URL = 'http://localhost:3000/api/v1';
-
 export default function PlayGround(props) {
   const [VisibleMenu, setVisibleMenu] = useState(true);
   const [queryFilter, setQueryFilter] = useState({
@@ -24,7 +22,9 @@ export default function PlayGround(props) {
     inputLocation: '',
     rating: 0,
   });
-  const [endPoint, setEndPoint] = useState(`${BASE_URL}/destinations/`);
+  const [endPoint, setEndPoint] = useState(
+      `${process.env.BASE_URL}destinations/`,
+  );
 
   const handleInputChange = (e) => {
     const newValue = {
@@ -53,8 +53,7 @@ export default function PlayGround(props) {
     query += page? `&page=${page}`: '';
     query += desc === 'true'? `&desc=${desc}`: '';
     query += sort? `&sort=${sort}`: '';
-    // eslint-disable-next-line max-len
-    return `${BASE_URL}/destinations/${query}`;
+    return `${process.env.BASE_URL}destinations/${query}`;
   };
 
 

@@ -1,6 +1,4 @@
 /* eslint-disable max-len */
-import dotenv from 'dotenv';
-dotenv.config();
 
 const origin = process.env.BASE_URL;
 
@@ -25,7 +23,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations`,
+      content: `${origin}destinations`,
     },
     {
       tag: 'p',
@@ -207,7 +205,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations`,
+      content: `${origin}destinations`,
     },
     {
       tag: 'accordion-code',
@@ -356,7 +354,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/:id`,
+      content: `${origin}destinations/:id`,
     },
     {
       tag: 'p',
@@ -368,7 +366,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/1`,
+      content: `${origin}destinations/1`,
     },
     {
       tag: 'p',
@@ -376,7 +374,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/5fc1a02191ce582470a4793e`,
+      content: `${origin}destinations/5fc1a02191ce582470a4793e`,
     },
     {
       tag: 'p',
@@ -477,7 +475,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/?sort=name`,
+      content: `${origin}destinations/?sort=name`,
     },
     {
       tag: 'accordion-code',
@@ -602,7 +600,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/?sort=name&desc=true`,
+      content: `${origin}destinations/?sort=name&desc=true`,
     },
     {
       tag: 'h3',
@@ -619,7 +617,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/?limit=2`,
+      content: `${origin}destinations/?limit=2`,
     },
     {
       tag: 'accordion-code',
@@ -757,7 +755,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/?page=1`,
+      content: `${origin}destinations/?page=1`,
     },
     {
       tag: 'accordion-code',
@@ -874,7 +872,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/?sort=name&page=2&limit=5`,
+      content: `${origin}destinations/?sort=name&page=2&limit=5`,
     },
     {
       tag: 'p',
@@ -915,7 +913,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/search`,
+      content: `${origin}destinations/search`,
     },
     {
       tag: 'p',
@@ -950,7 +948,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/search?name=ina`,
+      content: `${origin}destinations/search?name=ina`,
     },
     {
       tag: 'accordion-code',
@@ -1069,7 +1067,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/search?location=ban`,
+      content: `${origin}destinations/search?location=ban`,
     },
     {
       tag: 'accordion-code',
@@ -1196,7 +1194,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/search?categories=sejarah,budaya`,
+      content: `${origin}destinations/search?categories=sejarah,budaya`,
     },
     {
       tag: 'accordion-code',
@@ -1313,7 +1311,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/search?name=c&location=jakarta&categories=modern&sort=name&page=2&limit=2`,
+      content: `${origin}destinations/search?name=c&location=jakarta&categories=modern&sort=name&page=2&limit=2`,
     },
     {
       tag: 'accordion-code',
@@ -1428,7 +1426,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/review/:id`,
+      content: `${origin}destinations/review/:id`,
     },
     {
       tag: 'p',
@@ -1449,7 +1447,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/review/:id`,
+      content: `${origin}destinations/review/:id`,
     },
     {
       tag: 'p',
@@ -1484,7 +1482,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/review/5fc1a02191ce582470a4793e`,
+      content: `${origin}destinations/review/5fc1a02191ce582470a4793e`,
     },
     {
       tag: 'p',
@@ -1514,7 +1512,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/review/:id/:review_id`,
+      content: `${origin}destinations/review/:id/:review_id`,
     },
     {
       tag: 'p',
@@ -1530,7 +1528,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/review/5fc1a02191ce582470a4793e/5fc710a8c6ea589856bc5583`,
+      content: `${origin}destinations/review/5fc1a02191ce582470a4793e/5fc710a8c6ea589856bc5583`,
     },
     {
       tag: 'p',
@@ -1560,7 +1558,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/review/:id/:review_id`,
+      content: `${origin}destinations/review/:id/:review_id`,
     },
     {
       tag: 'p',
@@ -1576,7 +1574,7 @@ export const docs = {
     },
     {
       tag: 'code',
-      content: `${origin}api/v1/destinations/review/5fc1a02191ce582470a4793e/5fc710a8c6ea589856bc5583`,
+      content: `${origin}destinations/review/5fc1a02191ce582470a4793e/5fc710a8c6ea589856bc5583`,
     },
   ],
   'usage-get-destinations': [
